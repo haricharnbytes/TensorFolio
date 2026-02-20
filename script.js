@@ -39,7 +39,7 @@ let mouse = { x: null, y: null };
 // Config (tweak freely)
 // ======================
 const config = {
-  count: 130,
+  count: 140,
   maxDist: 150,
   speed: 0.8,
   size: 3

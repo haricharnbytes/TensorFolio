@@ -369,8 +369,132 @@
   flex: 1 1 400px;
 }
   /* SKILLS */
+/* SKILLS */
+  #skills {
+    padding: 0 48px 120px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
+  .skills-heading {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+
+  /* Creates the subtle line before the heading to match your About/Projects sections */
+  .skills-heading::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--ink-muted);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px; /* Space between the cards matching your sketch */
+  }
+
+  .skill-card {
+    padding: 40px;
+    border: 1px solid rgba(13,13,13,0.08); /* Matches project-card borders */
+    background: var(--bg);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .skill-card:hover {
+    border-color: var(--ink);
+    transform: translateY(-4px); /* Subtle lift effect */
+  }
+
+  .skill-category-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(13,13,13,0.08); /* Separator line */
+  }
+
+  .skill-list {
+    list-style: none;
+  }
+
+  .skill-list li {
+    position: relative;
+    padding-left: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    line-height: 2.2;
+    color: var(--ink-muted);
+    transition: color 0.25s;
+  }
+
+  /* Custom minimal bullet points */
+  .skill-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 4px;
+    height: 4px;
+    background: var(--ink-faint);
+    transition: background 0.25s;
+  }
+
+  .skill-list li:hover {
+    color: var(--ink);
+  }
+
+  .skill-list li:hover::before {
+    background: var(--ink);
+  }
   
+  .skill-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .skill-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Space between the logo and the text */
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-bottom: 16px; /* Space between each skill */
+    transition: color 0.25s, transform 0.2s;
+    cursor: default;
+  }
+
+  /* Moves the whole skill item slightly to the right on hover */
+  .skill-list li:hover {
+    color: var(--ink);
+    transform: translateX(6px); 
+  }
+
+  /* Style for the skill logos */
+  .skill-icon {
+    width: 22px; 
+    height: 22px;
+    object-fit: contain;
+    /* Optional: Makes logos black/white to fit the theme, but keeps them slightly faded */
+    filter: grayscale(100%) opacity(0.6);
+    transition: filter 0.3s ease;
+  }
+
+  /* On hover, restore the logo's original color and full opacity */
+  .skill-list li:hover .skill-icon {
+    filter: grayscale(0%) opacity(1);
+  }
 
   /* PROJECTS */
   #projects {

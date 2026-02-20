@@ -308,38 +308,6 @@
     background: var(--ink-faint);
   }
 
-  /* STATS strip */
-  #stats {
-    border-top: 1px solid rgba(13,13,13,0.08);
-    border-bottom: 1px solid rgba(13,13,13,0.08);
-    padding: 40px 48px;
-    display: flex;
-    justify-content: center;
-    gap: 0;
-  }
-  .stat-item {
-    flex: 1;
-    max-width: 220px;
-    text-align: center;
-    padding: 0 32px;
-    border-right: 1px solid rgba(13,13,13,0.08);
-  }
-  .stat-item:last-child { border-right: none; }
-  .stat-num {
-    font-size: 40px;
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    line-height: 1;
-  }
-  .stat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    color: var(--ink-muted);
-    text-transform: uppercase;
-    margin-top: 8px;
-  }
-
   /* ABOUT strip */
   #about {
     padding: 120px 48px;
@@ -380,30 +348,6 @@
     color: var(--ink-muted);
     margin-top: 32px;
   }
-  .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    margin-top: 12px;
-  }
-  .skill-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    padding: 14px 18px;
-    border: 1px solid rgba(13,13,13,0.1);
-    color: var(--ink-muted);
-    transition: all 0.25s;
-    cursor: default;
-  }
-  .skill-tag:hover {
-    background: var(--ink);
-    color: var(--bg);
-    border-color: var(--ink);
-  }
-  .skills-category {
-  margin-bottom: 40px;
-}
 
 .category-title {
   font-family: 'DM Mono', monospace;
@@ -414,27 +358,19 @@
   text-transform: uppercase;
 }
 
-.skill-group {
+.about-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  gap: 40px; /* spacing between About and Skills */
+  align-items: flex-start;
+  flex-wrap: wrap; /* wraps on small screens */
 }
 
-.skill-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  padding: 14px 18px;
-  border: 1px solid rgba(13,13,13,0.1);
-  color: var(--ink-muted);
-  transition: all 0.25s ease;
-  cursor: default;
+.about-text-section {
+  flex: 1 1 400px;
 }
+  /* SKILLS */
 
-.skill-tag:hover {
-  border-color: var(--ink-dark);
-  color: var(--ink-dark);
-}
+  
 
   /* PROJECTS */
   #projects {
@@ -564,6 +500,99 @@
   }
   .project-link:hover { gap: 14px; }
 
+  /* EXPERIENCE */
+
+ #experience {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center; /* center horizontally */
+}
+
+.experience-tree {
+  list-style: none;
+  padding-left: 0; /* remove default left padding */
+  position: relative;
+  max-width: 800px; /* limits width on large screens */
+  width: 100%; /* full width on small screens */
+}
+
+/* Tree line */
+.experience-tree li {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 30px;
+}
+
+.experience-tree li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15px;
+  width: 2px;
+  height: 100%;
+  background: #ccc;
+}
+
+/* Node styling */
+.experience-node {
+  display: flex;
+  align-items: flex-start;
+  transition: transform 0.3s;
+  justify-content: flex-start;
+}
+
+.experience-node:hover {
+  transform: translateY(-3px); /* subtle hover effect */
+}
+
+/* Node number */
+.experience-num {
+  font-weight: 700;
+  color: #030303;
+  margin-right: 15px;
+  min-width: 30px;
+  font-size: 18px;
+}
+
+/* Node info */
+.experience-info {
+  text-align: left; /* keeps text left-aligned inside centered tree */
+}
+
+.experience-info h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+}
+
+.experience-company {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.experience-desc {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Optional link inside node */
+.experience-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ff6b6b;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.experience-link:hover {
+  color: #080808;
+}
   /* CONTACT */
   #contact {
     padding: 120px 48px;

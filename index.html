@@ -27,8 +27,9 @@
   <ul class="nav-links">
     <li><a href="#hero">Home</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#research">Research</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="nav-toggle" aria-label="Menu">
@@ -40,9 +41,8 @@
 <!-- HERO -->
 <section id="hero">
   <canvas id="net"></canvas>
-
   <div class="hero-content">
-    <h1 class="hero-headline">Katta Hari Charan<br></h1>
+    <h1 class="hero-headline">Katta Hari Charan</h1>
     <p class="hero-sub">
       Building production-grade machine learning systems, neural architectures,
       and data pipelines that bridge research and real-world impact.
@@ -52,7 +52,6 @@
       <a href="#about" class="btn-secondary">About me</a>
     </div>
   </div>
-
   <div class="scroll-hint">
     <span>Scroll</span>
     <div class="scroll-line"></div>
@@ -61,39 +60,25 @@
 
 <!-- ABOUT -->
 <section id="about">
-  <div>
-    <div class="about-label">About</div>
-    <h2 class="about-headline">
-      Data scientist.<br>AI architect.<br>Problem solver.
-    </h2>
-    <p class="about-text">
-      I specialize in the full ML lifecycle — from exploratory analysis and
-      feature engineering to model training, optimization, and scalable deployment.
-      My work sits at the intersection of rigorous research and engineering pragmatism.
-    </p>
-    <p class="about-text" style="margin-top:16px">
-      Currently focused on large language models, computer vision systems,
-      and building intelligent data pipelines that scale.
-    </p>
-  </div>
-
-  <div>
-    <div class="about-label">Core Expertise</div>
-    <div class="skills-grid">
-      <div class="skill-tag">Machine Learning</div>
-      <div class="skill-tag">Deep Learning</div>
-      <div class="skill-tag">NLP / LLMs</div>
-      <div class="skill-tag">Computer Vision</div>
-      <div class="skill-tag">MLOps</div>
-      <div class="skill-tag">Data Engineering</div>
-      <div class="skill-tag">TensorFlow / PyTorch</div>
-      <div class="skill-tag">Transformers</div>
-      <div class="skill-tag">Python / SQL</div>
-      <div class="skill-tag">Git</div>
-      <div class="skill-tag">Docker</div>
+  <div class="about-container">
+    <div class="about-text-section">
+      <div class="about-label">About</div>
+      <h2 class="about-headline">
+        Data scientist.<br>AI architect.
+      </h2>
+      <p class="about-text">
+        I specialize in the full ML lifecycle — from exploratory analysis and
+        feature engineering to model training, optimization, and scalable deployment.
+        My work sits at the intersection of rigorous research and engineering pragmatism.
+      </p>
+      <p class="about-text" style="margin-top:16px">
+        Currently focused on large language models, computer vision systems,
+        and building intelligent data pipelines that scale.
+      </p>
     </div>
   </div>
 </section>
+
 
 <!-- PROJECTS -->
 <section id="projects">
@@ -104,7 +89,6 @@
     </div>
     <a href="#" class="view-all">View all →</a>
   </div>
-
   <div class="projects-grid">
     <div class="project-card">
       <div class="project-num">01</div>
@@ -152,12 +136,69 @@
   </div>
 </section>
 
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Work</div>
+      <h2 class="section-title">Experience</h2>
+    </div>
+  </div>
+
+  <ul class="experience-tree">
+    <li>
+      <div class="experience-node">
+        <span class="experience-num">01</span>
+        <div class="experience-info">
+          <h3 class="experience-role">AI Research Scientist</h3>
+          <p class="experience-company">XYZ Labs | 2022 - Present</p>
+          <p class="experience-desc">Leading research on large language models and deploying production-grade NLP systems.</p>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="experience-node">
+        <span class="experience-num">02</span>
+        <div class="experience-info">
+          <h3 class="experience-role">Machine Learning Engineer</h3>
+          <p class="experience-company">ABC Corp | 2020 - 2022</p>
+          <p class="experience-desc">Built computer vision pipelines for real-time industrial defect detection.</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- EDUCATION -->
+<section id="experience">
+  <div class="section-header">
+    <div>
+      <div class="section-label">study</div>
+      <h2 class="section-title">Education</h2>
+    </div>
+  </div>
+
+  <ul class="experience-tree">
+    <li>
+      <div class="experience-node">
+        <span class="experience-num">01</span>
+        <div class="experience-info">
+          <h3 class="experience-role">M. S. Engineering College</h3>
+          <p class="experience-company">Visvesavaya Technological University | 2019 - 2023</p>
+          <p class="experience-desc">Computer Science and Engineering.</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+
 <!-- CONTACT -->
 <section id="contact">
   <p class="contact-label">Get in touch</p>
   <h2 class="contact-headline">Let's build something intelligent.</h2>
   <a href="mailto:[email protected]" class="contact-email">[email protected]</a>
-
   <div style="margin-top:48px; display:flex; gap:12px; justify-content:center;">
     <a href="#" class="btn-primary"><span>Send message</span></a>
     <a href="#" class="btn-secondary">Download CV</a>

@@ -29,23 +29,139 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
 });
 
-// ── Neural network canvas ──────────────────────────────
-const canvas = document.getElementById('net');
-const ctx = canvas.getContext('2d');
-let W, H, nodes = [], mouse = { x: -9999, y: -9999 };
+const canvas = document.getElementById("net");
+const ctx = canvas.getContext("2d");
 
+let particles = [];
+let mouse = { x: null, y: null };
+
+// ======================
+// Config (tweak freely)
+// ======================
+const config = {
+  count: 130,
+  maxDist: 150,
+  speed: 0.8,
+  size: 3
+};
+
+// ======================
+// Resize canvas
+// ======================
 function resize() {
-  W = canvas.width = canvas.offsetWidth;
-  H = canvas.height = canvas.offsetHeight;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 }
 resize();
-window.addEventListener('resize', resize);
+window.addEventListener("resize", resize);
 
-document.addEventListener('mousemove', e => {
-  const rect = canvas.getBoundingClientRect();
-  mouse.x = e.clientX - rect.left;
-  mouse.y = e.clientY - rect.top;
+// ======================
+// Mouse interaction
+// ======================
+window.addEventListener("mousemove", e => {
+  mouse.x = e.x;
+  mouse.y = e.y;
 });
+
+window.addEventListener("mouseleave", () => {
+  mouse.x = null;
+  mouse.y = null;
+});
+
+// ======================
+// Particle class
+// ======================
+class Particle {
+  constructor() {
+    this.reset();
+  }
+
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.vx = (Math.random() - 0.5) * config.speed;
+    this.vy = (Math.random() - 0.5) * config.speed;
+  }
+
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+
+    // bounce edges
+    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+    // mouse attraction
+    if (mouse.x && mouse.y) {
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 150) {
+        this.x -= dx * 0.002;
+        this.y -= dy * 0.002;
+      }
+    }
+  }
+
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, config.size, 0, Math.PI * 2);
+    ctx.fillStyle = "#111";
+    ctx.fill();
+  }
+}
+
+// ======================
+// Init particles
+// ======================
+for (let i = 0; i < config.count; i++) {
+  particles.push(new Particle());
+}
+
+// ======================
+// Draw connections
+// ======================
+function connect() {
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const dist = dx * dx + dy * dy;
+
+      if (dist < config.maxDist * config.maxDist) {
+        const alpha = 1 - dist / (config.maxDist * config.maxDist);
+
+        ctx.strokeStyle = `rgba(0,0,0,${alpha * 0.35})`;
+        ctx.lineWidth = 1;
+
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+// ======================
+// Animation loop
+// ======================
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
+
+  connect();
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
 
 // Build nodes on a sphere-like distribution
 function buildNodes(count) {

@@ -269,3 +269,208 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
 document.querySelectorAll('.stat-item').forEach((el, i) => {
   el.style.transitionDelay = `${i * 0.08}s`;
 });
+
+
+// ── GitHub Activity Calendar ──────────────────────────────
+class GitHubCalendar {
+  constructor({ username, container, onDataLoaded }) {
+    this.username = username;
+    this.container = container;
+    this.onDataLoaded = onDataLoaded;
+    this.weeks = [];
+  }
+
+  async init() {
+    if (!this.username || !this.container) return;
+    this.renderLoading();
+    await this.fetchData();
+  }
+
+  renderLoading() {
+    this.container.innerHTML = `
+      <div style="height:120px; display:flex; align-items:center; justify-content:center; font-family:'DM Mono', monospace; font-size:12px; color:var(--ink-muted); text-transform:uppercase; letter-spacing:0.1em;">
+        Fetching activity data...
+      </div>
+    `;
+  }
+
+  renderError() {
+    this.container.innerHTML = `
+      <div style="height:120px; display:flex; align-items:center; justify-content:center; font-family:'DM Mono', monospace; font-size:12px; color:var(--ink-muted); text-transform:uppercase; letter-spacing:0.1em;">
+        Unable to load activity feed.
+      </div>
+    `;
+  }
+
+  async fetchData() {
+    try {
+      // Using an alternative reliable GitHub proxy API
+      const response = await fetch(`https://github-contributions-api.jogruber.de/v4/${this.username}?y=last`);
+      
+      if (!response.ok) throw new Error("API error");
+
+      const data = await response.json();
+      
+      // Calculate total for the loaded year
+      let total = 0;
+      for (const year of Object.keys(data.contributions)) {
+          total += data.total[year] || 0;
+      }
+
+      if (this.onDataLoaded) this.onDataLoaded(total);
+
+      // The API returns an array of days, we need to process them into weeks
+      this.processWeeks(data.contributions);
+      this.render();
+    } catch (err) {
+      console.error("GitHub Calendar Error:", err);
+      this.renderError();
+    }
+  }
+
+  processWeeks(contributionsArray) {
+    const processedWeeks = [];
+    let currentWeek = Array(7).fill(null);
+
+    contributionsArray.forEach((day, index) => {
+      const dateObj = new Date(day.date);
+      // getDay() returns 0 for Sunday, 6 for Saturday.
+      const dayOfWeek = dateObj.getUTCDay();
+
+      currentWeek[dayOfWeek] = day;
+
+      // If it's Saturday or the very last day in the array, push the week
+      if (dayOfWeek === 6 || index === contributionsArray.length - 1) {
+        processedWeeks.push([...currentWeek]);
+        currentWeek = Array(7).fill(null);
+      }
+    });
+
+    this.weeks = processedWeeks;
+  }
+
+  getLevelColor(level) {
+    // Styling matched to your high-contrast monochrome theme
+    const colors = [
+      "rgba(13, 13, 13, 0.04)", // Level 0 (Empty)
+      "rgba(13, 13, 13, 0.25)", // Level 1 (Light)
+      "rgba(13, 13, 13, 0.50)", // Level 2 (Medium)
+      "rgba(13, 13, 13, 0.75)", // Level 3 (Dark)
+      "rgba(13, 13, 13, 1.00)"  // Level 4 (Max)
+    ];
+    return colors[level] || colors[0];
+  }
+
+  formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", {
+      month: "short", day: "numeric", year: "numeric", timeZone: 'UTC'
+    });
+  }
+
+  render() {
+    this.container.innerHTML = "";
+
+    const wrapper = document.createElement("div");
+    wrapper.style.position = "relative";
+    wrapper.style.overflowX = "auto"; // Allows horizontal scroll
+    wrapper.style.paddingBottom = "12px";
+    wrapper.style.display = "flex";
+    wrapper.style.gap = "4px";
+
+    this.weeks.forEach((week) => {
+      const weekColumn = document.createElement("div");
+      weekColumn.style.display = "flex";
+      weekColumn.style.flexDirection = "column";
+      weekColumn.style.gap = "4px";
+
+      week.forEach((day) => {
+        const cell = document.createElement("div");
+        cell.style.width = "14px";
+        cell.style.height = "14px";
+        cell.style.borderRadius = "2px";
+        cell.style.transition = "transform 0.1s";
+
+        if (!day) {
+          cell.style.background = "transparent";
+        } else {
+          cell.style.background = this.getLevelColor(day.level);
+          cell.style.cursor = "pointer";
+
+          cell.addEventListener("mouseenter", (e) => {
+            cell.style.transform = "scale(1.15)"; // Pop effect on hover
+            this.showTooltip(e, day);
+          });
+          cell.addEventListener("mouseleave", () => {
+            cell.style.transform = "scale(1)";
+            this.hideTooltip();
+          });
+        }
+        weekColumn.appendChild(cell);
+      });
+      wrapper.appendChild(weekColumn);
+    });
+
+    this.container.appendChild(wrapper);
+
+    // Auto scroll to latest date (far right)
+    setTimeout(() => {
+      wrapper.scrollLeft = wrapper.scrollWidth;
+    }, 100);
+  }
+
+  showTooltip(e, day) {
+    this.hideTooltip();
+
+    const tooltip = document.createElement("div");
+    tooltip.id = "gh-tooltip";
+    tooltip.style.position = "fixed";
+    tooltip.style.background = "var(--ink)";
+    tooltip.style.color = "var(--bg)";
+    tooltip.style.fontFamily = "'DM Mono', monospace";
+    tooltip.style.fontSize = "10px";
+    tooltip.style.padding = "8px 12px";
+    tooltip.style.borderRadius = "0px"; // Sharp edges to match theme
+    tooltip.style.pointerEvents = "none";
+    tooltip.style.whiteSpace = "nowrap";
+    tooltip.style.zIndex = "9999";
+    tooltip.style.letterSpacing = "0.05em";
+
+    const dateStr = this.formatDate(day.date);
+    tooltip.innerHTML = `
+      <div style="font-weight:bold; margin-bottom:4px;">${day.count} contributions</div>
+      <div style="opacity:0.6; text-transform:uppercase;">${dateStr}</div>
+    `;
+
+    document.body.appendChild(tooltip);
+
+    // Calculate positioning to float perfectly above the cell
+    const rect = e.target.getBoundingClientRect();
+    tooltip.style.left = rect.left + (rect.width / 2) + "px";
+    tooltip.style.top = rect.top - 8 + "px";
+    tooltip.style.transform = "translate(-50%, -100%)";
+  }
+
+  hideTooltip() {
+    const existing = document.getElementById("gh-tooltip");
+    if (existing) existing.remove();
+  }
+}
+
+// ── Initialize the Calendar ──
+// Make sure to replace "YOUR_GITHUB_USERNAME" with your actual username!
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('github-calendar-container');
+  if (container) {
+    const ghCalendar = new GitHubCalendar({
+      username: 'haricharnbytes', // <-- CHANGE THIS TO YOUR USERNAME
+      container: container,
+      onDataLoaded: (total) => {
+        // Updates the header text with your total contribution count
+        const totalEl = document.getElementById('gh-total-contributions');
+        if (totalEl) totalEl.textContent = total;
+      }
+    });
+    ghCalendar.init();
+  }
+});

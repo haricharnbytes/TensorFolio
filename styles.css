@@ -368,8 +368,159 @@
 .about-text-section {
   flex: 1 1 400px;
 }
+  /* Github */
+/* GITHUB CALENDAR STYLING */
+  .gh-card {
+    padding: 40px;
+    border: 1px solid rgba(13,13,13,0.08);
+    background: var(--bg);
+    transition: border-color 0.3s, transform 0.3s;
+    overflow: hidden;
+  }
+  
+  .gh-card:hover {
+    border-color: var(--ink);
+    transform: translateY(-4px);
+  }
+
+  /* Custom scrollbar for the calendar overflow */
+  #github-calendar-container > div::-webkit-scrollbar {
+    height: 6px;
+  }
+  #github-calendar-container > div::-webkit-scrollbar-track {
+    background: rgba(13,13,13,0.04);
+    border-radius: 4px;
+  }
+  #github-calendar-container > div::-webkit-scrollbar-thumb {
+    background: rgba(13,13,13,0.15);
+    border-radius: 4px;
+  }
+  #github-calendar-container > div::-webkit-scrollbar-thumb:hover {
+    background: rgba(13,13,13,0.3);
+  }
+
+  @media (max-width: 900px) {
+    #github-activity { padding: 0 24px 80px; }
+    .gh-card { padding: 24px; }
+  }
+
+  /* GITHUB CALENDAR LOG STYLING */
+  .gh-log-card {
+    padding: 32px 40px;
+    border: 3px solid var(--ink); /* Thick border like the image */
+    background: var(--bg);
+    position: relative;
+    box-shadow: 6px 6px 0 rgba(13,13,13,0.05); /* Optional: slight solid shadow for depth */
+  }
+
+  /* Header Layout */
+  .gh-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .gh-header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  /* Logo Box */
+  .gh-logo-box {
+    width: 44px;
+    height: 44px;
+    border: 1.5px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Typography matching the image */
+  .gh-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+
+  .gh-subtitle {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    letter-spacing: 0.08em;
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+
+  .gh-view-profile {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+  
+  .gh-view-profile:hover {
+    color: var(--ink);
+  }
+
+  /* Divider */
+  .gh-divider {
+    border: none;
+    border-top: 1px solid rgba(13,13,13,0.06);
+    margin: 28px 0;
+  }
+
+  /* Scrollbar for calendar */
+  .gh-calendar-wrapper > div::-webkit-scrollbar {
+    height: 6px;
+  }
+  .gh-calendar-wrapper > div::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .gh-calendar-wrapper > div::-webkit-scrollbar-thumb {
+    background: rgba(13,13,13,0.15);
+    border-radius: 4px;
+  }
+
+  /* Legend */
+  .gh-legend {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    margin-top: 24px;
+    letter-spacing: 0.05em;
+  }
+
+  .gh-legend-blocks {
+    display: flex;
+    gap: 3px;
+  }
+
+  .gh-legend-blocks div {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 900px) {
+    #github-activity { padding: 0 24px 80px; }
+    .gh-log-card { padding: 24px; }
+    .gh-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .gh-view-profile { align-self: flex-start; }
+  }
   /* SKILLS */
-/* SKILLS */
   #skills {
     padding: 0 48px 120px;
     max-width: 1200px;

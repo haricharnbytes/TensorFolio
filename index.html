@@ -1,335 +1,469 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Katta Hari Charan</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23000000'/><text x='50%25' y='55%25' font-family='sans-serif' font-weight='800' font-size='38' fill='%23ffffff' text-anchor='middle' dominant-baseline='middle'>HC</text></svg>">
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katta Hari Charan</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23000000'/><text x='50%25' y='55%25' font-family='sans-serif' font-weight='800' font-size='38' fill='%23ffffff' text-anchor='middle' dominant-baseline='middle'>HC</text></svg>"
+    />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-<body>
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
 
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
+    <!-- NAV -->
+    <nav id="navbar">
+      <a href="#" class="nav-logo">
+        <div class="logo-mark">HC</div>
+        <span>Hari Charan</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
 
-<!-- NAV -->
-<nav id="navbar">
-  <a href="#" class="nav-logo">
-    <div class="logo-mark">HC</div>
-    <span>Hari Charan</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+    <!-- HERO -->
+    <section id="hero">
+      <canvas id="net"></canvas>
+      <div class="hero-content">
+        <h1 class="hero-headline">Katta Hari Charan</h1>
+        <p class="hero-sub">Machine Learning | Data Science | AI Engineering</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn-primary"
+            ><span>View Projects</span><span>→</span></a
+          >
+          <a href="#about" class="btn-secondary">About me</a>
+        </div>
+      </div>
+    </section>
 
-    <span></span>
-    <span></span>
-  </button>
-</nav>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="about-container">
+        <div class="about-text-section">
+          <div class="about-label">About</div>
+          <h2 class="about-headline">Data scientist.<br />AI architect.</h2>
+          <p class="about-text">
+            I specialize in the full ML lifecycle — from exploratory analysis
+            and feature engineering to model training, optimization, and
+            scalable deployment. My work sits at the intersection of rigorous
+            research and engineering pragmatism.
+          </p>
+          <p class="about-text" style="margin-top: 16px">
+            Currently focused on large language models, computer vision systems,
+            and building intelligent data pipelines that scale.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<!-- HERO -->
-<section id="hero">
-  <canvas id="net"></canvas>
-  <div class="hero-content">
-    <h1 class="hero-headline">Katta Hari Charan</h1>
-    <p class="hero-sub">
-      Machine Learning | Data Science | AI Engineering
-    </p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn-primary"><span>View Projects</span><span>→</span></a>
-      <a href="#about" class="btn-secondary">About me</a>
+    <!-- Github -->
+    <section
+      id="github-activity"
+      style="padding: 0 48px 120px; max-width: 1200px; margin: 0 auto"
+    >
+      <div class="gh-log-card">
+        <div class="gh-header">
+          <div class="gh-header-left">
+            <div class="gh-logo-box">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--ink)"
+                stroke-width="2"
+                stroke-linecap="square"
+                stroke-linejoin="miter"
+              >
+                <line x1="6" y1="3" x2="6" y2="15"></line>
+                <circle cx="18" cy="6" r="3"></circle>
+                <circle cx="6" cy="18" r="3"></circle>
+                <path d="M18 9a9 9 0 0 1-9 9"></path>
+              </svg>
+            </div>
+            <div class="gh-header-text">
+              <h3 class="gh-title">ACTIVITY_LOG</h3>
+            </div>
+          </div>
+          <a
+            href="https://github.com/haricharnbytes"
+            target="_blank"
+            class="gh-view-profile"
+            >VIEW PROFILE &rarr;</a
+          >
+        </div>
+
+        <hr class="gh-divider" />
+
+        <div id="github-calendar-container" class="gh-calendar-wrapper"></div>
+
+        <div class="gh-legend">
+          <span>LESS</span>
+          <div class="gh-legend-blocks">
+            <div style="background: rgba(13, 13, 13, 0.04)"></div>
+            <div style="background: rgba(13, 13, 13, 0.25)"></div>
+            <div style="background: rgba(13, 13, 13, 0.5)"></div>
+            <div style="background: rgba(13, 13, 13, 0.75)"></div>
+            <div style="background: rgba(13, 13, 13, 1)"></div>
+          </div>
+          <span>MORE</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+
+    <section id="skills" class="skills-section">
+      <h2 class="skills-heading">SKILLS</h2>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3 class="skill-category-title">Languages</h3>
+          <ul class="skill-list">
+            <li>
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                alt="Python"
+                class="skill-icon"
+              />
+              <span>Python</span>
+            </li>
+            <li>
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                alt="SQL"
+                class="skill-icon"
+              />
+              <span>SQL</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-category-title">Frameworks</h3>
+          <ul class="skill-list">
+            <li>
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"
+                alt="pytorch"
+                class="skill-icon"
+              />
+              <span>PyTorch</span>
+            </li>
+            <li>
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                alt="Node.js"
+                class="skill-icon"
+              />
+              <span>Node.js</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-category-title">Tools</h3>
+          <ul class="skill-list">
+            <li>
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                alt="Git"
+                class="skill-icon"
+              />
+              <span>Git</span>
+            </li>
+            <li>
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                alt="Docker"
+                class="skill-icon"
+              />
+              <span>Docker</span>
+            </li>
+            <li>
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                alt="vscode"
+                class="skill-icon"
+              />
+              <span>Visual Studio Code</span>
+            </li>
+            <li>
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg"
+                alt="Jupyter"
+                class="skill-icon"
+              />
+              <span>Jupyter Notebook</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-category-title">Cloud</h3>
+          <ul class="skill-list">
+            <li>
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+                alt="AWS"
+                class="skill-icon"
+              />
+              <span>AWS</span>
+            </li>
+            <li>
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
+                alt="GCP"
+                class="skill-icon"
+              />
+              <span>Google Cloud</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-header">
+        <div>
+          <div class="section-label">Selected Work</div>
+          <h2 class="section-title">Projects</h2>
+        </div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-num">01</div>
+          <div class="project-type">Generative AI · RAG</div>
+          <h3 class="project-name">RAG-Based Intelligent Document QA System</h3>
+          <p class="project-desc">
+            Developed an end-to-end RAG system Implemented text chunking,
+            embedding creation, and semantic vector indexing with FAISS Vector
+            Database for similarity search and retrieval. Integrated the
+            LangChain framework with Large Language Models.
+          </p>
+          <a
+            href="https://github.com/haricharnbytes/RAG_project"
+            class="project-link"
+            >View <span>→</span></a
+          >
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">02</div>
+          <div class="project-type">Generative AI</div>
+          <h3 class="project-name">Text-to-SQL AI Application</h3>
+          <p class="project-desc">
+            Built a local Text-to-SQL web application that converts natural
+            language questions into executable SQL queries using a locally
+            hosted LLM via LangChain.",
+          </p>
+          <a
+            href="https://github.com/haricharnbytes/Text-to-SQL_command-Generator"
+            class="project-link"
+            >View <span>→</span></a
+          >
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">03</div>
+          <div class="project-type">Transformers · Summarization</div>
+          <h3 class="project-name">YouTube Video Summarizer</h3>
+          <p class="project-desc">
+            Developed a Streamlit-based web app to extract YouTube transcripts
+            and generate concise AI-powered summaries using large language
+            models.
+            <br />Reduced manual note-taking time by over 70% for long-form
+            video content.
+          </p>
+          <a
+            href="https://github.com/haricharnbytes/youtube_video_summarizer"
+            class="project-link"
+            >View <span>→</span></a
+          >
+        </div>
+
+        <div class="project-card">
+          <div class="project-num">04</div>
+          <div class="project-type">Classification · Machine Learning</div>
+          <h3 class="project-name">Diagnostic Breast Cancer Prediction</h3>
+          <p class="project-desc">
+            A machine learning–based system that predicts breast cancer
+            diagnosis using clinical and diagnostic data to support early and
+            accurate detection.
+          </p>
+          <a
+            href="https://github.com/haricharnbytes/breast_cancer"
+            class="project-link"
+            >View Project <span>→</span></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-header">
+        <div>
+          <div class="section-label">Work</div>
+          <h2 class="section-title">Experience</h2>
+        </div>
+      </div>
+
+      <ul class="experience-tree">
+        <li>
+          <div class="experience-node">
+            <span class="experience-num">01</span>
+            <div class="experience-info">
+              <h3 class="experience-role">AI Research Scientist</h3>
+              <p class="experience-company">XYZ Labs | 2022 - Present</p>
+              <p class="experience-desc">
+                Leading research on large language models and deploying
+                production-grade NLP systems.
+              </p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="experience-node">
+            <span class="experience-num">02</span>
+            <div class="experience-info">
+              <h3 class="experience-role">Machine Learning Engineer</h3>
+              <p class="experience-company">ABC Corp | 2020 - 2022</p>
+              <p class="experience-desc">
+                Built computer vision pipelines for real-time industrial defect
+                detection.
+              </p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="experience">
+      <div class="section-header">
+        <div>
+          <div class="section-label">study</div>
+          <h2 class="section-title">Education</h2>
+        </div>
+      </div>
+
+      <ul class="experience-tree">
+        <li>
+          <div class="experience-node">
+            <span class="experience-num">01</span>
+            <div class="experience-info">
+              <h3 class="experience-role">M. S. Engineering College</h3>
+              <p class="experience-company">
+                Visvesavaya Technological University | 2019 - 2023
+              </p>
+              <p class="experience-desc">Computer Science and Engineering.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <p class="contact-label">Get in touch</p>
+      <h2 class="contact-headline">Let's build something intelligent.</h2>
+      <a href="mailto: hccharankatta@gmail.com " class="contact-email">
+        hccharankatta@gmail.com
+      </a>
+      <div
+        style="
+          margin-top: 48px;
+          display: flex;
+          gap: 12px;
+          justify-content: center;
+        "
+      >
+        <a href="#" class="btn-primary"><span>Send message</span></a>
+        <a href="docs/Charan_s_Resume.pdf" target="_blank" class="btn-secondary"
+          >View Resume</a
+        >
+      </div>
+    </section>
+
+
+  <footer class="portfolio-footer">
+  <div class="footer-container">
+
+    <div class="footer-grid">
+      <div class="info-card">
+        <span class="info-label">Focus Area</span>
+        <strong class="info-value">ML / DL / Generative AI</strong>
+      </div>
+      
+      <div class="info-card">
+        <span class="info-label">Stack Main</span>
+        <strong class="info-value">Python / Scikit-learn / TensorFlow / PyTorch / LangChain</strong>
+      </div>
+      
+      <div class="info-card">
+        <span class="info-label">Region</span>
+        <strong class="info-value">Bengaluru, IN</strong>
+      </div>
+      
+      <div class="info-card">
+        <span class="info-label">Year</span>
+        <strong class="info-value">2026</strong>
+      </div>
     </div>
-  </div>
 
-</section>
+    <div class="footer-bottom">
+      <div class="social-links">
+        <a href="https://github.com/haricharnbytes" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/haricharankatta/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-container">
-    <div class="about-text-section">
-      <div class="about-label">About</div>
-      <h2 class="about-headline">
-        Data scientist.<br>AI architect.
-      </h2>
-      <p class="about-text">
-        I specialize in the full ML lifecycle — from exploratory analysis and
-        feature engineering to model training, optimization, and scalable deployment.
-        My work sits at the intersection of rigorous research and engineering pragmatism.
-      </p>
-      <p class="about-text" style="margin-top:16px">
-        Currently focused on large language models, computer vision systems,
-        and building intelligent data pipelines that scale.
-      </p>
+      <div class="copyright">
+        © Katta Hari Charan • 2026
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- Github -->
-<section id="github-activity" style="padding: 0 48px 120px; max-width: 1200px; margin: 0 auto;">
-  
-  <div class="gh-log-card">
     
-    <div class="gh-header">
-      <div class="gh-header-left">
-        <div class="gh-logo-box">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
-            <line x1="6" y1="3" x2="6" y2="15"></line>
-            <circle cx="18" cy="6" r="3"></circle>
-            <circle cx="6" cy="18" r="3"></circle>
-            <path d="M18 9a9 9 0 0 1-9 9"></path>
-          </svg>
-        </div>
-        <div class="gh-header-text">
-          <h3 class="gh-title">ACTIVITY_LOG</h3>
-        </div>
-      </div>
-      <a href="https://github.com/haricharnbytes" target="_blank" class="gh-view-profile">VIEW PROFILE &rarr;</a>
-    </div>
-
-    <hr class="gh-divider">
-
-    <div id="github-calendar-container" class="gh-calendar-wrapper"></div>
-
-    <div class="gh-legend">
-      <span>LESS</span>
-      <div class="gh-legend-blocks">
-        <div style="background: rgba(13,13,13,0.04)"></div>
-        <div style="background: rgba(13,13,13,0.25)"></div>
-        <div style="background: rgba(13,13,13,0.50)"></div>
-        <div style="background: rgba(13,13,13,0.75)"></div>
-        <div style="background: rgba(13,13,13,1.00)"></div>
-      </div>
-      <span>MORE</span>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- SKILLS -->
-
-<section id="skills" class="skills-section">
-  <h2 class="skills-heading">SKILLS</h2>
-  
-  <div class="skills-grid">
-    <div class="skill-card">
-      <h3 class="skill-category-title">Languages</h3>
-      <ul class="skill-list">
-        <li>
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="skill-icon">
-          <span>Python</span>
-        </li>
-        <li>
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" class="skill-icon">
-          <span>SQL</span>
-        </li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <h3 class="skill-category-title">Frameworks</h3>
-      <ul class="skill-list">
-        <li>
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="pytorch" class="skill-icon">
-          <span>PyTorch</span>
-        </li>
-        <li>
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="skill-icon">
-          <span>Node.js</span>
-        </li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <h3 class="skill-category-title">Tools</h3>
-      <ul class="skill-list">
-        <li>
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="skill-icon">
-          <span>Git</span>
-        </li>
-        <li>
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="skill-icon">
-          <span>Docker</span>
-        </li>
-         <li>
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="vscode" class="skill-icon">
-          <span>Visual Studio Code</span>
-        </li>
-        <li>
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter" class="skill-icon">
-          <span>Jupyter Notebook</span>
-        </li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <h3 class="skill-category-title">Cloud</h3>
-      <ul class="skill-list">
-        <li>
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" class="skill-icon">
-          <span>AWS</span>
-        </li>
-        <li>
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP" class="skill-icon">
-          <span>Google Cloud</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-header">
-    <div>
-      <div class="section-label">Selected Work</div>
-      <h2 class="section-title">Projects</h2>
-    </div>
-  </div>
-  <div class="projects-grid">
-
-    <div class="project-card">
-      <div class="project-num">01 </div>
-      <div class="project-type">Generative AI · RAG</div>
-      <h3 class="project-name">RAG-Based Intelligent Document QA System</h3>
-      <p class="project-desc">
-        Developed an end-to-end RAG system Implemented text chunking, embedding creation, 
-        and semantic vector indexing with FAISS Vector Database for similarity search and retrieval.
-        Integrated the LangChain framework with Large Language Models.
-        </p>
-      <a href="https://github.com/haricharnbytes/RAG_project" class="project-link">View <span>→</span></a>
-    </div>
-
-    <div class="project-card">
-      <div class="project-num">02</div>
-      <div class="project-type">Generative AI</div>
-      <h3 class="project-name">Text-to-SQL AI Application</h3>
-      <p class="project-desc">
-        Built a local Text-to-SQL web application that converts natural language questions into executable SQL queries
-        using a locally hosted LLM via LangChain.",
-
-      </p>
-      <a href="https://github.com/haricharnbytes/Text-to-SQL_command-Generator" class="project-link">View <span>→</span></a>
-    </div>
-
-    <div class="project-card">
-      <div class="project-num">03</div>
-      <div class="project-type">Transformers · Summarization</div>
-      <h3 class="project-name">YouTube Video Summarizer</h3>
-      <p class="project-desc">
-        Developed a Streamlit-based web app to extract YouTube transcripts and generate concise AI-powered summaries using large language models.
-        <br>Reduced manual note-taking time by over 70% for long-form video content.
-      </p>
-      <a href="https://github.com/haricharnbytes/youtube_video_summarizer" class="project-link">View <span>→</span></a>
-    </div>
-
-    <div class="project-card">
-      <div class="project-num">04</div>
-      <div class="project-type">Classification · Machine Learning</div>
-      <h3 class="project-name">Diagnostic Breast Cancer Prediction</h3>
-      <p class="project-desc">
-        A machine learning–based system that predicts breast cancer diagnosis using clinical and diagnostic data to support early and accurate detection.
-      </p>
-      <a href="https://github.com/haricharnbytes/breast_cancer" class="project-link">View Project <span>→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-header">
-    <div>
-      <div class="section-label">Work</div>
-      <h2 class="section-title">Experience</h2>
-    </div>
-  </div>
-
-  <ul class="experience-tree">
-    <li>
-      <div class="experience-node">
-        <span class="experience-num">01</span>
-        <div class="experience-info">
-          <h3 class="experience-role">AI Research Scientist</h3>
-          <p class="experience-company">XYZ Labs | 2022 - Present</p>
-          <p class="experience-desc">Leading research on large language models and deploying production-grade NLP systems.</p>
-        </div>
-      </div>
-    </li>
-
-    <li>
-      <div class="experience-node">
-        <span class="experience-num">02</span>
-        <div class="experience-info">
-          <h3 class="experience-role">Machine Learning Engineer</h3>
-          <p class="experience-company">ABC Corp | 2020 - 2022</p>
-          <p class="experience-desc">Built computer vision pipelines for real-time industrial defect detection.</p>
-        </div>
-      </div>
-    </li>
-  </ul>
-</section>
-
-<!-- EDUCATION -->
-<section id="experience">
-  <div class="section-header">
-    <div>
-      <div class="section-label">study</div>
-      <h2 class="section-title">Education</h2>
-    </div>
-  </div>
-
-  <ul class="experience-tree">
-    <li>
-      <div class="experience-node">
-        <span class="experience-num">01</span>
-        <div class="experience-info">
-          <h3 class="experience-role">M. S. Engineering College</h3>
-          <p class="experience-company">Visvesavaya Technological University | 2019 - 2023</p>
-          <p class="experience-desc">Computer Science and Engineering.</p>
-        </div>
-      </div>
-    </li>
-  </ul>
-</section>
-
-
-<!-- CONTACT -->
-<section id="contact">
-  <p class="contact-label">Get in touch</p>
-  <h2 class="contact-headline">Let's build something intelligent.</h2>
-  <a href="mailto: hccharankatta@gmail.com " class="contact-email"> hccharankatta@gmail.com </a>
-  <div style="margin-top:48px; display:flex; gap:12px; justify-content:center;">
-    <a href="#" class="btn-primary"><span>Send message</span></a>
-    <a href="docs/Charan_s_Resume.pdf" target="_blank" class="btn-secondary">View Resume</a>
-  </div>
-</section>
-
-<footer>
-  <span class="footer-copy">© 2026 Katta Hari Charan. All rights reserved.</span>
-  
-  <div class="footer-links">
-    <a href="https://github.com/haricharnbytes" target="_blank">
-      <i class="fab fa-github"></i> GitHub
-    </a>
-    
-    <a href="https://www.linkedin.com/in/haricharankatta/" target="_blank">
-      <i class="fab fa-linkedin"></i> LinkedIn
-    </a>
   </div>
 </footer>
 
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
